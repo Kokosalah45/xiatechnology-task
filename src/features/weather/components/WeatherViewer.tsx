@@ -20,7 +20,7 @@ export const WeatherViewer = () => {
   if (!isWeatherDataSuccess || !weatherData) return <div>Not found</div>;
 
   return (
-    <main className="flex flex-1 flex-col pt-10">
+    <main className="flex flex-1 flex-col pt-5">
       <CurrentWeatherSection weatherData={weatherData} />
       <ForecastSection weatherData={weatherData} />
     </main>

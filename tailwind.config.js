@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+const defaultTheme = require("tailwindcss/defaultTheme");
+
 module.exports = {
   darkMode: ["class"],
   content: [
@@ -16,7 +18,16 @@ module.exports = {
         "2xl": "1400px",
       },
     },
+
     extend: {
+      fontSize: {
+        "clamp-9xl": "clamp(5rem, 15vw, 8rem)",
+        "clamp-5xl": "clamp(1.5rem, 10vw, 3rem)",
+      },
+
+      fontFamily: {
+        sans: ['"Work Sans"', ...defaultTheme.fontFamily.sans],
+      },
       minHeight: {
         hero: "calc(100vh - 96px)",
       },

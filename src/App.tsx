@@ -17,7 +17,7 @@ function App() {
             <Header
               className="flex flex-col py-5  min-h-24 items-center justify-between md:flex-row gap-2"
               start={
-                <h2 className="text-5xl font-bold uppercase tracking-wider">
+                <h2 className="text-clamp-5xl font-bold uppercase tracking-wider">
                   instaweather
                 </h2>
               }

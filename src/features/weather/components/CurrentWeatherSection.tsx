@@ -52,11 +52,11 @@ export const CurrentWeatherSection = ({
         </div>
       </section>
       <section className="flex-1 flex  justify-center flex-col items-center  md:items-end">
-        <h2 className="text-[144px] font-bold before:content-['°'] relative before:absolute before:-right-1/4 before:-top-1/4">
+        <h2 className="text-clamp-9xl font-bold before:content-['°'] relative before:absolute before:-right-12 before:-top-1/3">
           {currentTemp}
         </h2>
         <div className="flex flex-col justify-between items-center  md:items-end  text-[48px]">
-          <div className="flex space-x-2">
+          <div className="flex space-x-5">
             <span className="font-bold before:content-['°'] relative before:absolute before:-right-1/4 before:-top-1/4">
               {maxForecastTemp}
             </span>

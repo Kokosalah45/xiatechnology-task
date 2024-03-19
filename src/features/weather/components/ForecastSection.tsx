@@ -26,7 +26,7 @@ const ForecastSection = ({
       className="flex flex-col space-y-6 flex-1"
       defaultValue="hourly"
     >
-      <TabsList className="border-b border-white  border-white/50 text-2xl font-semibold ">
+      <TabsList className="border-b border-white  text-xl  border-white/50 font-bold ">
         <TabsTrigger
           className={` capitalize ${
             activeTab === "hourly" ? "border-b border-white" : ""
@@ -44,7 +44,7 @@ const ForecastSection = ({
           daily
         </TabsTrigger>
       </TabsList>
-      <div className="overflow-x-auto  scrollbar-thumb-white border-b min-h-36 border-white/50 scrollbar-thin py-2">
+      <div className="overflow-x-auto  scrollbar-thumb-white border-b min-h-40 border-white/50 scrollbar-thin py-2">
         <TabsContent className="flex space-x-7" value="hourly">
           {hourlyData.map((hour, index) => {
             const currentTime = format(new Date(Date.now()), "kk:00");
@@ -54,9 +54,9 @@ const ForecastSection = ({
             return (
               <div
                 key={index}
-                className="flex flex-col justify-center items-center text-xl"
+                className="flex flex-col gap-2 justify-center items-center text-xl"
               >
-                <h3>{formattedDate}</h3>
+                <h3 className="text-2xl">{formattedDate}</h3>
                 <figure className="w-16">
                   <img
                     width={64}
@@ -64,7 +64,9 @@ const ForecastSection = ({
                     alt={hour.condition.text}
                   />
                 </figure>
-                <h3>{currentTempScale === "c" ? hour.temp_c : hour.temp_f}°</h3>
+                <h3 className="text-4xl before:content-['°'] relative before:absolute before:-right-1/4 before:-top-1/3">
+                  {currentTempScale === "c" ? hour.temp_c : hour.temp_f}
+                </h3>
               </div>
             );
           })}
@@ -74,18 +76,19 @@ const ForecastSection = ({
             return (
               <div
                 key={index}
-                className="flex flex-col items-center justify-center "
+                className="flex flex-col gap-2 items-center justify-center "
               >
-                <h3>{format(new Date(day.date), "EEEE d")}</h3>
+                <h3 className="text-2xl">
+                  {format(new Date(day.date), "EEEE d")}
+                </h3>
                 <img
                   src={day.day.condition.icon}
                   alt={day.day.condition.text}
                 />
-                <h3>
+                <h3 className="text-4xl before:content-['°'] relative before:absolute before:-right-1/4 before:-top-1/3">
                   {currentTempScale === "c"
                     ? day.day.maxtemp_c
                     : day.day.maxtemp_f}
-                  °
                 </h3>
               </div>
             );
